@@ -1,0 +1,89 @@
+<body>
+    <br />
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="row ">
+                <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4>
+                <hr>
+                <flash-messages></flash-messages>
+                <form #userForm="ngForm" (ngSubmit)="registeruser(user)">
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+                        <input class="form-control" [(ngModel)]="user.email" placeholder="Email" name="email" #email="ngModel" id="email" type="email" required> </div>
+                    <span *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                        <span [hidden]="!email.errors.required">Please Enter the Email</span>
+
+                    </span>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                        <input size="60" maxlength="255" [(ngModel)]="user.username" class="form-control" minlength="4" placeholder="User Name" name="username" #name="ngModel" id="username" type="text" required></div>
+                    <span *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                        <span [hidden]="!name.errors.required">Please Enter the name </span>
+                    <span [hidden]="!name.errors.minlength">Please Enter atleast 4 Charcters</span>
+
+                    </span>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                        <input size="60" minlength="6" maxlength="255" [(ngModel)]="user.password" class="form-control" placeholder="Password" name="password" #pwd="ngModel" id="password" type="password" required> </div>
+                    <span *ngIf="pwd.errors && (pwd.dirty || pwd.touched)" class="alert alert-danger">
+                        <span [hidden]="!pwd.errors.required">Please Enter the Password </span>
+                    <span [hidden]="!pwd.errors.minlength">Please Enter atleast 6 Charcters</span>
+                    </span>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                        <input size="60" minlength="6" maxlength="255" class="form-control" [(ngModel)]="user.cnfpassword" placeholder="Confirm Password" name="cnfpassword" #cnfpwd="ngModel" id="UserRegistration_confirmpassword" type="password" ngModel required>                        </div>
+                    <span *ngIf="cnfpwd.errors && (cnfpwd.dirty || cnfpwd.touched)" class="alert alert-danger">
+                        <span [hidden]="!cnfpwd.errors.required">Please Enter the Confirm Password </span>
+                    <span [hidden]="!cnfpwd.errors.minlength">Please Enter atleast 6 Charcters</span>
+
+                    </span>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                        <input size="60" #reffname="ngModel" minlength="4" maxlength="255" [(ngModel)]="user.firstname" class="form-control" placeholder="First Name" name="firstname" id="UserRegistration_fname" type="text" required> </div>
+                    <span *ngIf="reffname.errors && (reffname.dirty || reffname.touched)" class="alert alert-danger">
+                        <span [hidden]="!reffname.errors.required">Please Enter the First Name </span>
+                    <span [hidden]="!reffname.errors.minlength">Please Enter atleast 4 Charcters</span>
+
+                    </span>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                        <input size="60" #reflname="ngModel" maxlength="255" class="form-control" [(ngModel)]="user.lastname" placeholder="Last Name" name="lastname" id="UserRegistration_lname" type="text" ngModel required> </div>
+                    <span *ngIf="reflname.errors && (reflname.dirty || reflname.touched)" class="alert alert-danger">
+                        <span [hidden]="!reflname.errors.required">Please Enter the Last name </span>
+
+
+                    </span>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
+                        <input size="60" #refMobile="ngModel" pattern="^[7-9][0-9]{9}" [(ngModel)]="user.mobile" maxlength="255" class="form-control" placeholder="Contact Number" name="mobile" id="UserRegistration_contactnumber" type="text" ngModel required></div>
+                    <span *ngIf="refMobile.errors && (refMobile.dirty || refMobile.touched)" class="alert alert-danger">
+                        <span [hidden]="!refMobile.errors.pattern">Please Enter the 10 Digits mobile number </span>
+                    <span [hidden]="!refMobile.errors.required">Please Enter The Mobile Number</span>
+                    </span>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt mycolor"></i></span>
+                        <input type="date" #refdob="ngModel" class="form-control" [(ngModel)]="user.dob" placeholder="Date Of Birth" name="dob" id="UserRegistration_dob" ngModel required> </div>
+                    <span *ngIf="refdob.errors && (refdob.dirty || refdob.touched)" class="alert alert-danger">
+                        <span [hidden]="!refdob.errors.required">Please Enter The Date Of Birth</span>
+
+                    </span>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <button class="btn-u pull-left" type="submit">Register</button>
+                            <button class="btn-u pull-left mybtn" type="reset">Clear</button>
+                            <button class="alredy"> <a href="/"> Alredy Register? login Here</a></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+</body>
